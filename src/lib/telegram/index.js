@@ -334,3 +334,7 @@ export async function getChannelInfo(Astro, { before = '', after = '', q = '', t
   cache.set(cacheKey, channelInfo)
   return channelInfo
 }
+
+export async function clearCache() {
+  cache.clear()
+}
