@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "broadcast-channel",
+  "main": "./dist/_worker.js/index.js",
+  "compatibility_date": "2026-05-31",
+  "keep_vars": true,
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "SESSION"
+    }
+  ]
+}

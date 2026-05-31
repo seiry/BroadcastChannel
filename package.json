@@ -8,7 +8,10 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "build:worker": "SERVER_ADAPTER=cloudflare_worker astro build && node scripts/prepare-worker-assets.mjs",
     "preview": "astro preview",
+    "preview:worker": "pnpm build:worker && wrangler dev --port 4322",
+    "deploy:worker": "pnpm build:worker && wrangler deploy",
     "astro": "astro",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -49,7 +52,8 @@
     "simple-git-hooks": "^2.13.1",
     "std-env": "^4.0.0",
     "tailwindcss": "^4.2.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "wrangler": "^4.59.2"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"

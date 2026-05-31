@@ -108,6 +108,9 @@ importers:
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
+      wrangler:
+        specifier: ^4.59.2
+        version: 4.59.2(@cloudflare/workers-types@4.20260317.1)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
 
 packages:
 

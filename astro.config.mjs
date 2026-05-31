@@ -15,6 +15,9 @@ const providers = {
     isr: false,
     edgeMiddleware: false,
   }),
+  cloudflare: cloudflare(),
+  cloudflare_worker: cloudflare(),
+  cloudflare_workers: cloudflare(),
   cloudflare_pages: cloudflare(),
   netlify: netlify({
     cacheOnDemandPages: false,
@@ -29,6 +32,8 @@ const providers = {
 const adapterProvider = (process.env.HOME === '/dev/shm/home' && process.env.TMPDIR === '/dev/shm/tmp')
   ? 'edgeone'
   : process.env.SERVER_ADAPTER || provider
+
+const isCloudflareAdapter = ['cloudflare', 'cloudflare_worker', 'cloudflare_workers', 'cloudflare_pages'].includes(adapterProvider)
 
 // https://astro.build/config
 export default defineConfig({
@@ -58,7 +63,7 @@ export default defineConfig({
     ssr: {
       noExternal: process.env.DOCKER ? !!process.env.DOCKER : undefined,
       external: [
-        ...adapterProvider === 'cloudflare_pages'
+        ...isCloudflareAdapter
           ? [
               'module',
               'url',
