@@ -14,5 +14,5 @@
     {
       "binding": "SESSION"
     }
-  ]
+  ],"name": "broadcast-channel-worker"
 }
