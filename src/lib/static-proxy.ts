@@ -6,6 +6,7 @@ const TARGET_WHITELIST = [
   'cdn-telegram.org',
   'telesco.pe',
   'yandex.ru',
+  'seiry.eu',
 ]
 
 export function resolveStaticProxyTarget(rawTarget: string): URL {
